@@ -2,7 +2,7 @@
 Our peer-to-peer blockchain
 
 Martin and Michael start solution:
-- (Here)[https://github.com/KLMM-LSD/BlockchainProject/tree/master/Solution_MM]
+- https://github.com/KLMM-LSD/BlockchainProject/tree/master/Solution_MM
 
 Kristjan and Lasse start solution:
-- (Here)[https://github.com/KLMM-LSD/BlockchainProject/tree/master/Solution_KL]
+- https://github.com/KLMM-LSD/BlockchainProject/tree/master/Solution_KL
