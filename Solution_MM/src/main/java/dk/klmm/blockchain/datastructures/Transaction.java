@@ -10,25 +10,25 @@ package dk.klmm.blockchain.datastructures;
  * @author Micha
  */
 public class Transaction {
-    private String give;
+    private String sender;
     private Integer amount;
-    private String receive;
+    private String receiver;
     
     public Transaction(){
     }
 
-    public Transaction(String give, Integer amount, String receive) {
-        this.give = give;
+    public Transaction(String sender, Integer amount, String receiver) {
+        this.sender = sender;
         this.amount = amount;
-        this.receive = receive;
+        this.receiver = receiver;
     }
 
-    public String getGive() {
-        return give;
+    public String getSender() {
+        return sender;
     }
 
-    public void setGive(String give) {
-        this.give = give;
+    public void setSender(String givsender) {
+        this.sender = sender;
     }
 
     public Integer getAmount() {
@@ -39,17 +39,17 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public String getReceive() {
-        return receive;
+    public String getReceiver() {
+        return receiver;
     }
 
-    public void setReceive(String receive) {
-        this.receive = receive;
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 
     @Override
     public String toString() {
-        return give + "-" + amount + ">" + receive;
+        return sender + "-" + amount + ">" + receiver;
     }
 }
 
