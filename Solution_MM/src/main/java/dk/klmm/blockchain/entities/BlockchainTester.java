@@ -7,7 +7,7 @@ package dk.klmm.blockchain.entities;
 
 import java.util.ArrayList;
 
-public class Main {
+public class BlockchainTester {
 
     private static ArrayList<Block> blocks = new ArrayList<>();
 
