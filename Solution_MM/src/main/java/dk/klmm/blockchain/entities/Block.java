@@ -13,13 +13,10 @@ import java.util.Stack;
  * @author Micha
  */
 public class Block {
-    //private int nonce = 0;
+    private int nonce = 0;
     //private Stack<Transaction> transaction = new Stack<>();
-    //private String previousHash = null;
-    //private String thisBlocksHash = null;
     private int previousHash; 
     Transaction transactions; 
-    
     private int blockHash;
 
     public Block(int previousHash, Transaction transactions) {
@@ -29,7 +26,14 @@ public class Block {
         Object[] contents = {transactions.hashCode(), previousHash};
         this.blockHash = Arrays.hashCode(contents);
     }
+    
+    public void mine(int previousHash){
+        nonce = 0;
+        this.previousHash = previousHash;
+    }
 
+    
+    
     public int getPreviousHash() {
         return previousHash;
     }
