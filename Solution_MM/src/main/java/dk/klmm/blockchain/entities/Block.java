@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dk.klmm.blockchain.datastructures;
+package dk.klmm.blockchain.entities;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 /**
@@ -17,15 +18,15 @@ public class Block {
     //private String previousHash = null;
     //private String thisBlocksHash = null;
     private int previousHash; 
-    String[] transactions; 
+    Transaction transactions; 
     
     private int blockHash;
 
-    public Block(int previousHash, String[] transactions) {
+    public Block(int previousHash, Transaction transactions) {
         this.previousHash = previousHash;
         this.transactions = transactions;
         
-        Object[] contents = {Arrays.hashCode(transactions), previousHash};
+        Object[] contents = {transactions.hashCode(), previousHash};
         this.blockHash = Arrays.hashCode(contents);
     }
 
@@ -33,7 +34,7 @@ public class Block {
         return previousHash;
     }
 
-    public String[] getTransactions() {
+    public Transaction getTransactions() {
         return transactions;
     }
 
