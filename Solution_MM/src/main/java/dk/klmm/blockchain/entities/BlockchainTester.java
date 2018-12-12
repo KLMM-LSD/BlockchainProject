@@ -8,7 +8,7 @@ package dk.klmm.blockchain.entities;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Main {
+public class BlockchainTester {
 
     private static ArrayList<Block> blocks = new ArrayList<>();
 

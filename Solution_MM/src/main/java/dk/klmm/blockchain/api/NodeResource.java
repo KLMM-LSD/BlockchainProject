@@ -24,8 +24,6 @@ public class NodeResource {
     public NodeResource(){
     }
     
-    
-    
     @RequestMapping("/Hello")
     public String echo(){
         System.out.println("Hello from node");

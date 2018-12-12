@@ -43,7 +43,14 @@ public class Block {
         Object[] contents = {transaction1.hashCode(), prevHash};
         return Arrays.hashCode(contents);
     }
+    
+    public void mine(int previousHash){
+        nonce = 0;
+        this.previousHash = previousHash;
+    }
 
+    
+    
     public int getPreviousHash() {
         return previousHash;
     }
