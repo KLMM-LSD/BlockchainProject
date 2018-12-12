@@ -5,24 +5,23 @@
  */
 package dk.klmm.blockchain.api;
 
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author Micha
+ * @author Mart_
  */
 @RestController
-@RequestMapping("peer")
-@Produces(MediaType.APPLICATION_JSON)
-public class PeerResource {
-    
-    @GetMapping
-    public String receivePeer(){
-        String peer = "Peer received";
-        return peer;
+@RequestMapping("")
+public class TransactionResource {
+
+    //Gets a list of known nodes.
+    @RequestMapping("/new")
+    public String newTrans() {
+        System.out.println("Oprette new ");
+        return "Oprette new ";
     }
+
 }

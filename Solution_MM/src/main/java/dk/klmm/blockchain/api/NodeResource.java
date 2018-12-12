@@ -19,17 +19,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("node")
 @Produces(MediaType.APPLICATION_JSON)
 public class NodeResource {
-    
+
     @Autowired
-    public NodeResource(){
+    public NodeResource() {
     }
-    
+
     @RequestMapping("/Hello")
-    public String echo(){
-        System.out.println("Hello from node");
-        return "test";
+    public String echo() {
+        return "Heelo Worrrld";
     }
-    
-    
-    
+
+    //Gets a list of known nodes.
+    @RequestMapping("/known")
+    public String getNodes() {
+        return "Knowns";
+    }
+
+    //Gets a list of known nodes.
+    @RequestMapping("/register")
+    public String registering() {
+        return "Registering";
+    }
+
 }
