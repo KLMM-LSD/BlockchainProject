@@ -17,10 +17,10 @@ public class TestApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        while (true) {
-            System.out.println("testing this is true");
-            Thread.sleep(3000);
-        }
+        //while (true) {
+            //System.out.println("testing this is true");
+          //  Thread.sleep(3000);
+       // }
     }
     
 }
