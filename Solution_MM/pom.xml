@@ -4,7 +4,7 @@
     
     <groupId>dk.klmm</groupId>
     <artifactId>Blockchain</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
     
     <name>blockchain</name>
