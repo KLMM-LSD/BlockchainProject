@@ -45,7 +45,7 @@ public class BlockResource {
     
     //Post
     @PostMapping("latest")
-    public String receiveMicha(){
+    public String receiveLatest(){
         String latest = "this is latest: ";
         return latest;
     }
