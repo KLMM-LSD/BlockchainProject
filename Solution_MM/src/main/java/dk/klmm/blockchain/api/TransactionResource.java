@@ -29,7 +29,7 @@ public class TransactionResource {
     }
 
     //Gets a list of known nodes.
-    @RequestMapping(path = "/retrieve", method = RequestMethod.POST)
+    @RequestMapping(path = "/receive", method = RequestMethod.GET)
     public Boolean getTransaction(@RequestBody Transaction t) {
         // Process, Mine and then send to peers
         return true;
