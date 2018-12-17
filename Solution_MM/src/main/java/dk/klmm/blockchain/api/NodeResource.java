@@ -32,7 +32,7 @@ public class NodeResource {
 
     @RequestMapping(path = "/hello", method = RequestMethod.GET)
     public String echo() {
-        return "Herro I am chinese";
+        return "Herro I am hero";
     }
 
     @RequestMapping(path = "/greet", method = RequestMethod.POST)

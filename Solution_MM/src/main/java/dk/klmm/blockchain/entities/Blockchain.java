@@ -68,6 +68,8 @@ public class Blockchain {
     }
 
     public static void setChain(ArrayList<Block> newChain) {
+        System.out.println("My Chain has been updated \n From: " + myChain.toString());
         myChain = newChain;
+        System.out.println("To: " + newChain.toString());
     }
 }
