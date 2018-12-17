@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -53,9 +54,10 @@ public class NodeResource {
         return Peers.listOfPeers;
     }
 
-    @RequestMapping("/register")
-    public void registering() {
-        Peers.addPeer(uri);
+    @RequestMapping(value="register/{uri}", method = RequestMethod.GET)
+    public void registering(@PathVariable String uri) {
+        System.out.println("Adding Uri: " + uri);
+        Peers.addPeer(uri); 
     }
 
 }
