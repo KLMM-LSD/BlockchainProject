@@ -6,6 +6,7 @@
 package dk.klmm.blockchain.entities;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Stack;
 
 /**
@@ -15,43 +16,50 @@ import java.util.Stack;
 public class Block {
 
     private int nonce = 0;
-    //private Stack<Transaction> transaction = new Stack<>();
-    //private String previousHash = null;
-    //private String thisBlocksHash = null;
-    private int previousHash;
+    private int diff = 0;
+    
+    private String previousHash;
     Transaction transactions;
+    private long timeStamp;
+    
+    
+    private String blockHash;
 
-    private int blockHash;
-
-    public Block(int previousHash, Transaction transactions) {
+    public Block(String previousHash, Transaction transactions) {
         this.previousHash = previousHash;
         this.transactions = transactions;
 
-        this.blockHash = calculateHash(transactions, previousHash);
+        this.timeStamp  = new Date().getTime();
+        this.blockHash = calculateHash();
     }
 
-//    public void mineBlock(int difficulty) {
-//        String target = new String(new char[difficulty]).replace('\0', '0'); //Create a string with difficulty * "0" 
-//        while (!blockHash.substring(0, difficulty).equals(target)) {
-//            nonce++;
-//            blockHash = calculateHash();
-//        }
-//        System.out.println("Block Mined!!! : " + blockHash);
+//    private int calculateHash(Transaction transaction1, String prevHash) {
+//        Object[] contents = {transaction1.hashCode(), prevHash};
+//        return Arrays.hashCode(contents);
 //    }
+    
+    
+    public String calculateHash() {
+		String calculatedhash = StringUtil.applySha256( 
+				previousHash +
+				Long.toString(timeStamp) +
+				Integer.toString(nonce) + 
+				transactions 
+				);
+		return calculatedhash;
+}
 
-    private int calculateHash(Transaction transaction1, int prevHash) {
-        Object[] contents = {transaction1.hashCode(), prevHash};
-        return Arrays.hashCode(contents);
-    }
-    
-    public void mine(int previousHash){
-        nonce = 0;
-        this.previousHash = previousHash;
+    public void mine(int previousHash) {
+        String target = new String(new char[diff]).replace('\0', '0'); //Create a string with difficulty * "0" 
+        while (!blockHash.substring(0, diff).equals(target)) {
+            nonce++;
+            blockHash = calculateHash();
+        }
+        System.out.println("Block Mined!!! : " + blockHash);
     }
 
-    
-    
-    public int getPreviousHash() {
+
+public String getPreviousHash() {
         return previousHash;
     }
 
@@ -59,7 +67,7 @@ public class Block {
         return transactions;
     }
 
-    public int getBlockHash() {
+    public String getBlockHash() {
         return blockHash;
     }
 

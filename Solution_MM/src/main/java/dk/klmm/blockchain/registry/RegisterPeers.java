@@ -19,11 +19,11 @@ public class RegisterPeers {
     
     private RegisterPeers(){
         registry = new ArrayList<>();
-        registry.add("http://localhost:8081");
-        registry.add("http://localhost:8082");
-        registry.add("http://localhost:8083");
-        registry.add("http://localhost:8084");
-        registry.add("http://localhost:8085");
+        registry.add("localhost:8081");
+        registry.add("localhost:8082");
+        registry.add("localhost:8083");
+        registry.add("localhost:8084");
+        registry.add("localhost:8085");
     }
     
     public static void addPeer(String peerAddress){

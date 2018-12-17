@@ -43,7 +43,7 @@ public class Blockchain {
             return false;
         }
         for (int i = 1; i < chain.size(); i++) {
-            int temp = chain.get(i - 1).getBlockHash();
+            String temp = chain.get(i - 1).getBlockHash();
        
             if (temp != chain.get(i).getPreviousHash()) {
                 return false;
