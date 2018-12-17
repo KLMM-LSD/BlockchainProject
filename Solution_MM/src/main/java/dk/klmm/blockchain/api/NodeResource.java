@@ -8,12 +8,10 @@ package dk.klmm.blockchain.api;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -42,10 +40,9 @@ public class NodeResource {
             String result = restTemplate.getForObject(uri, String.class);
            // ResponseEntity<String> response = restTemplate.getForEntity(uri + "/Hello", String.class);
             return result;
-        } catch (Exception ex) {
+        } catch (RestClientException ex) {
             return ex.getMessage();
         }
-        // return " ";
     }
 
     //Gets a list of known nodes.
@@ -54,7 +51,7 @@ public class NodeResource {
         return "Knowns";
     }
 
-    //Gets a list of known nodes.
+    //Registers known nodes.
     @RequestMapping("/register")
     public String registering() {
         return "Registering";
