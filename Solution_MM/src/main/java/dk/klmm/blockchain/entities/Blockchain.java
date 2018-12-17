@@ -14,7 +14,7 @@ import java.util.HashMap;
  */
 public class Blockchain {
 
-    private static ArrayList<Block> myChain;
+    private static ArrayList<Block> myChain = new ArrayList<>();
 
     //Does the request fit the consensus
     public static ArrayList<Block> consensus(ArrayList<ArrayList<Block>> listOfChains) {
@@ -22,7 +22,7 @@ public class Blockchain {
         ArrayList<Block> consensus = null;
         for (ArrayList<Block> chain : listOfChains) {
             if (hm.containsKey(chain)) {
-                hm.put(chain, hm.get(chain) + 1); // Increment Value
+                hm.put(chain, hm.get(chain) + 1);
             } else {
                 hm.put(chain, 1); // Create Key,Value pair if they do not exsist. 
             }
@@ -44,7 +44,7 @@ public class Blockchain {
         }
         for (int i = 1; i < chain.size(); i++) {
             String temp = chain.get(i - 1).getBlockHash();
-       
+
             if (temp != chain.get(i).getPreviousHash()) {
                 return false;
             }
@@ -52,4 +52,22 @@ public class Blockchain {
         return true;
     }
 
+    public static void addBlock(Block b) {
+        myChain.add(b);
+    }
+
+    public static ArrayList<Block> getMyChain() {
+        return myChain;
+    }
+
+    public static Block getLatestBlock() {
+        if (myChain.isEmpty()) {
+            return new Block("0", null);
+        }
+        return myChain.get(myChain.size() - 1);
+    }
+
+    public static void setChain(ArrayList<Block> newChain) {
+        myChain = newChain;
+    }
 }

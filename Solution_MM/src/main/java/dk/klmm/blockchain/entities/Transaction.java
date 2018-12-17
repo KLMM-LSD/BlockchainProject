@@ -49,7 +49,7 @@ public class Transaction {
 
     @Override
     public String toString() {
-        return sender + "-" + amount + ">" + receiver;
+        return sender + "-" + amount + "->" + receiver;
     }
 }
 

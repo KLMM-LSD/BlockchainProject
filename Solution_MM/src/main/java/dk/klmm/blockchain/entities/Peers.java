@@ -5,10 +5,7 @@
  */
 package dk.klmm.blockchain.entities;
 
-import dk.klmm.blockchain.classUtilities.Broadcaster;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -16,7 +13,7 @@ import java.util.List;
  */
 public class Peers {
 
-    public static List<String> listOfPeers = new ArrayList<>();
+    public static ArrayList<String> listOfPeers = new ArrayList<>();
 
     public static void addPeer(String uri) {
         if (!listOfPeers.contains(uri)) {
@@ -28,7 +25,7 @@ public class Peers {
         listOfPeers.remove(uri);
     }
 
-    public static List<String> getPeers() {
+    public static ArrayList<String> getPeers() {
         return listOfPeers;
     }
 }

@@ -5,9 +5,7 @@
  */
 package dk.klmm.blockchain.entities;
 
-import java.util.Arrays;
 import java.util.Date;
-import java.util.Stack;
 
 /**
  *
@@ -17,19 +15,18 @@ public class Block {
 
     private int nonce = 0;
     private int diff = 0;
-    
+
     private String previousHash;
     Transaction transactions;
     private long timeStamp;
-    
-    
+
     private String blockHash;
 
     public Block(String previousHash, Transaction transactions) {
         this.previousHash = previousHash;
         this.transactions = transactions;
 
-        this.timeStamp  = new Date().getTime();
+        this.timeStamp = new Date().getTime();
         this.blockHash = calculateHash();
     }
 
@@ -37,17 +34,15 @@ public class Block {
 //        Object[] contents = {transaction1.hashCode(), prevHash};
 //        return Arrays.hashCode(contents);
 //    }
-    
-    
     public String calculateHash() {
-		String calculatedhash = StringUtil.applySha256( 
-				previousHash +
-				Long.toString(timeStamp) +
-				Integer.toString(nonce) + 
-				transactions 
-				);
-		return calculatedhash;
-}
+        String calculatedhash = StringUtil.applySha256(
+                previousHash
+                + Long.toString(timeStamp)
+                + Integer.toString(nonce)
+                + transactions
+        );
+        return calculatedhash;
+    }
 
     public void mine(int previousHash) {
         String target = new String(new char[diff]).replace('\0', '0'); //Create a string with difficulty * "0" 
@@ -58,8 +53,7 @@ public class Block {
         System.out.println("Block Mined!!! : " + blockHash);
     }
 
-
-public String getPreviousHash() {
+    public String getPreviousHash() {
         return previousHash;
     }
 

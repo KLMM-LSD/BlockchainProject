@@ -72,8 +72,4 @@ public class Broadcaster {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        pingFriends(10);
-    }
-
 }
