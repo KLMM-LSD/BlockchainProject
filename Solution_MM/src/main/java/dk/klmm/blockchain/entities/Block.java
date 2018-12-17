@@ -65,4 +65,9 @@ public class Block {
         return blockHash;
     }
 
+    @Override
+    public String toString() {
+        return "Block{" + "nonce=" + nonce + ", diff=" + diff + ", previousHash=" + previousHash + ", transactions=" + transactions + ", timeStamp=" + timeStamp + ", blockHash=" + blockHash + '}';
+    }
+
 }

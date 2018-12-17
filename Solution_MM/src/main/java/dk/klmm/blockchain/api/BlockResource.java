@@ -36,7 +36,7 @@ public class BlockResource {
     Gson gson = new Gson();
 
     //When behind, catchup to date
-    @RequestMapping("catchup")
+    @RequestMapping(value = "catchup", method = RequestMethod.GET)
     public String catchup() throws IOException {
         Broadcaster.pingFriends(10);                   // Denne metode skal kaldes på init under normale omstændigheder. 
         ArrayList<String> urls = Peers.getPeers();
@@ -48,7 +48,7 @@ public class BlockResource {
             System.out.println("Adding chain to my List");
             chains.add(jsonToBlock(result));
         }
-        return "Det virkede sådan da";
+        return "Det virkede sådan da" + chains;
     }
 
     //Post
