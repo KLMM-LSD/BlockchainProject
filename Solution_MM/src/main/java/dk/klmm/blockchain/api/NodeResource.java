@@ -5,6 +5,8 @@
  */
 package dk.klmm.blockchain.api;
 
+import dk.klmm.blockchain.entities.Peers;
+import java.util.List;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +26,7 @@ import org.springframework.web.client.RestTemplate;
 @RequestMapping("node")
 @Produces(MediaType.APPLICATION_JSON)
 public class NodeResource {
-
+    
     @Autowired
     public NodeResource() {
     }
@@ -50,14 +52,14 @@ public class NodeResource {
 
     //Gets a list of known nodes.
     @RequestMapping("/known")
-    public String getNodes() {
-        return "Knowns";
+    public List<String> getNodes() {
+        return Peers.listOfPeers;
     }
 
-    //Gets a list of known nodes.
+    //Adds a new node
     @RequestMapping("/register")
-    public String registering() {
-        return "Registering";
+    public void registering() {
+        Peers.addPeer(uri);
     }
 
 }
