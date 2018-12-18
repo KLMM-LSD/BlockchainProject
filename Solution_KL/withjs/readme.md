@@ -2,7 +2,7 @@
 
 ![screenshot](screenshot.png)
 
-The scenario creates nodes on `localhost:2000`, `localhost:2010`,
+The scenario `runme.sh` creates nodes on `localhost:2000`, `localhost:2010`,
 `localhost:2020`, `localhost:2030`, `localhost:2040`.
 It then lets them know eachother with a `POST` request to `/discover`
 to `localhost:2010`, which then forwards the discovery request to all
@@ -19,7 +19,7 @@ The scenario then tries to insert a transaction with the contents
 ```
 
 by sending that transaction to each miner. In this test run, both
-miners managed to mine a valid block which is forwarded to the nodes.
+miners managed to mine a valid block which got forwarded to the nodes.
 It can be seen that both potentially valid blocks were received.
 
 ![conflict](conflict.png)
