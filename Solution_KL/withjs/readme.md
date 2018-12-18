@@ -136,3 +136,8 @@ will it attach to? That determines the longest chain.
     }
 ]
 ```
+
+
+# Sources
+- https://en.wikipedia.org/wiki/Blockchain
+- https://expressjs.com/en/starter/hello-world.html
