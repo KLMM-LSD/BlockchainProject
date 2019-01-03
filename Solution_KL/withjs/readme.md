@@ -8,6 +8,9 @@ Node
 | POST /discover | Send list of known peers to discover. Ignore already known |
 | POST /block | Receive a block and consider it for longest chain |
 
+In any case, a node will upon `POST /block` respond with the block of the longest chain.
+Bastard miners can ignore it but the legitimate miners should agree upon it.
+
 Miner
 
 | Endpoint | Purpose |
