@@ -1,3 +1,22 @@
+# API
+
+Node
+
+| Endpoint | Purpose |
+| --- | --- |
+| GET / | View received blocks and known peers in browser |
+| POST /discover | Send list of known peers to discover. Ignore already known |
+| POST /block | Receive a block and consider it for longest chain |
+
+Miner
+
+| Endpoint | Purpose |
+| --- | --- |
+| GET / | View current commit set and known peers in browser |
+| POST /discover | Send list of known peers to discover. Ignore already known |
+| POST /transaction | Receive a new transaction to add to commit set |
+| POST /block | Receive a block to use as newest and discard current commit set |
+
 # Test
 
 ![screenshot](screenshot.png)
